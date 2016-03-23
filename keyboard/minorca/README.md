@@ -75,3 +75,14 @@ To build firmware binary hex file with a certain keymap just do `make` with `KEY
 			TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,UP, RIGHT, \
 			TRNS,  TRNS,TRNS,	  TRNS,	     TRNS,  TRNS, DOWN, TRNS),
 	 
+const uint16_t PROGMEM fn_actions[] = {
+    /* Minorca Layout */
+    [0] = ACTION_LAYER_MOMENTARY(5),  // to numfunc overlay
+    [1] = ACTION_LAYER_TOGGLE(6),     // toggle arrow overlay
+    [2] = ACTION_LAYER_MOMENTARY(4),  // to Layout selector
+    [5] = ACTION_DEFAULT_LAYER_SET(0),  // set minorca layout
+    [6] = ACTION_DEFAULT_LAYER_SET(1),  // set colemak layout
+    [7] = ACTION_DEFAULT_LAYER_SET(2),  // set dvorak layout
+    [8] = ACTION_DEFAULT_LAYER_SET(3),  // set hhkb layout
+    [11] = ACTION_DEFAULT_LAYER_SET(0),  // set minorca layout
+	};
