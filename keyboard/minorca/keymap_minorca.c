@@ -38,31 +38,40 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * Ld: set Dvorak layout
      * Lw: set HHKB layout
 	 */
-    /* 4: layout */
-	 KEYMAP(FN5, FN6, FN7, FN8, TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,HOME,ESC, \
-			TRNS, FN5,FN8,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,END,INS,  \
-			TRNS,TRNS,FN7,FN6,TRNS,TRNS,TRNS,TRNS,LEFT,UP, RIGHT, \
-			TRNS,  TRNS,FN2,	  SPC,	     SPC,  TRNS, DOWN, TRNS),
-    /* 5: numfunc */
-	 KEYMAP(GRV,   1,   2,   3,   4,   5,   6,   7,   8,   9,   0, DEL, \
-			CAPS,  TRNS,TRNS,TRNS,COMM,DOT, MINS, EQL,  LBRC,RBRC, ENT, \
-			LSFT,  TRNS, TRNS, INS, PSCR, QUOT, SCLN, EQL, LEFT,UP, RIGHT, \
-			TRNS,  TRNS,TRNS,	  FN11,	     SPC,     TRNS, DOWN, TRNS),
-    /* 6: arrow */
+    /* 4: ctrl/shift switch */
+	 KEYMAP(ESC,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC, \
+			TAB,   A,   S,   D,   F,   G,   H,   J,   K,   L,   ENT, \
+			LCTL,  Z,   X,   C,   V,   B,   	N,   M,   COMM,DOT, SLSH, \
+			LSFT,  LALT,FN2,	  SPC,	    SPC,      FN1, QUOT, FN0),
+    /* 5 arrow */
 	 KEYMAP(ESC,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, TRNS, \
 			TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  \
 			TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,UP, RIGHT, \
-			TRNS,  TRNS,TRNS,	  TRNS,	     TRNS,  TRNS, DOWN, TRNS),
+			TRNS,  TRNS,FN2,	  FN9,	     TRNS,  FN1, DOWN, FN0),
+    /* 6 numfunc */
+	 KEYMAP(GRV,   1,   2,   3,   4,   5,   6,   7,   8,   9,   0, DEL, \ 
+			CAPS,  HOME,TRNS,TRNS,COMM,DOT, MINS, EQL,  LBRC,RBRC, ENT, \
+			LSFT,  END,FN9, INS, PSCR, QUOT, SCLN, EQL, LEFT,UP, RIGHT, \
+			TRNS,  TRNS,FN2,	  FN11,	     SPC,     FN1, DOWN, FN0),
+    /* 7: layout */
+	 KEYMAP(FN5, FN6, FN7, FN8, TRNS,TRNS,TRNS,TRNS,TRNS,PGUP,HOME,ESC, \
+			TRNS, FN5,FN8,TRNS,TRNS,TRNS,TRNS,TRNS,PGDN,END,INS,  \
+			TRNS,TRNS,FN7,FN6,TRNS,TRNS,TRNS,TRNS,LEFT,UP, RIGHT, \
+			TRNS,  TRNS,FN2,	  FN12,	     FN13,  TRNS, DOWN, TRNS),
 	 
 };
 const uint16_t PROGMEM fn_actions[] = {
-    /* Minorca Layout */
-    [0] = ACTION_LAYER_MOMENTARY(5),  // to numfunc overlay
-    [1] = ACTION_LAYER_TOGGLE(6),     // toggle arrow overlay
-    [2] = ACTION_LAYER_MOMENTARY(4),  // to Layout selector
+    /* Minorca Layout */ 
+    [0] = ACTION_LAYER_MOMENTARY(6),  // to numfunc overlay
+    [1] = ACTION_LAYER_TOGGLE(5),     // toggle arrow overlay
+    [2] = ACTION_LAYER_MOMENTARY(7),  // to Layout selector
+    [9] = ACTION_LAYER_TOGGLE(4),  // toggle ctrl/shift switch overlay
+    [3] = ACTION_LAYER_SET_CLEAR(0),  // back to original minorca layout
     [5] = ACTION_DEFAULT_LAYER_SET(0),  // set minorca layout
     [6] = ACTION_DEFAULT_LAYER_SET(1),  // set colemak layout
     [7] = ACTION_DEFAULT_LAYER_SET(2),  // set dvorak layout
     [8] = ACTION_DEFAULT_LAYER_SET(3),  // set hhkb layout
     [11] = ACTION_DEFAULT_LAYER_SET(0),  // set minorca layout
+    [12] = ACTION_LAYER_SET_CLEAR(0),  // back to original minorca layout
+    [13] = ACTION_LAYER_SET_CLEAR(4),  // back to original minorca layout
 	};
