@@ -26,7 +26,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    Panc Interactive
 #define PRODUCT         Sebright
-#define DESCRIPTION     A custom keyboard
+#define DESCRIPTION     Mk.I Custom Firmware
 
 /* key matrix size */
 #define MATRIX_ROWS 4
